@@ -37,8 +37,8 @@ export default function Navbar() {
           <a href="../services" className="block py-2 lg:py-0 hover:text-yellow-400">
             Our Services
           </a>
-          <a href="../pricing" className="block py-2 lg:py-0 hover:text-yellow-400">
-            Pricing
+          <a href="../contact" className="block py-2 lg:py-0 hover:text-yellow-400">
+            Contact Us
           </a>
         </div>
       </div>

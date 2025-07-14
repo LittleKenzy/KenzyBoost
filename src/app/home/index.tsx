@@ -1,9 +1,8 @@
-import { Rocket } from "lucide-react";
 import Image from "next/image";
 
 const HomeSection = () => {
   return (
-    <section className="bg-white shadow-lg mt-10 w-full">
+    <section className="bg-gradient-to-tr from-stone-50 to-orange-200 mx-auto my-auto bg-white shadow-2xl mt-10 w-full">
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-4 md:grid-cols-4 md:items-center md:gap-8">
           <div className="md:col-span-1">

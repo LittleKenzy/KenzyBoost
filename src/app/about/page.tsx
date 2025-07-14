@@ -1,7 +1,7 @@
 import { Rocket } from "lucide-react";
 import Image from "next/image";
 
-const page = () => {
+const Page = () => {
   return (
     <div className="flex flex-col mt-10 items-center justify-center gap-4">
       <Image
@@ -46,4 +46,4 @@ const page = () => {
   )
 }
 
-export default page;
+export default Page;

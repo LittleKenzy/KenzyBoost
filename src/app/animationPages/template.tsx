@@ -1,15 +1,86 @@
-import motion from 'framer-motion'
+'use client'
 
-export default function AnimatedSection() {
+import { motion } from "motion/react"
+
+export function AnimatedSection({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8 }}
-      className="bg-white p-6 rounded-xl shadow"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
     >
-      <h2 className="text-xl font-bold">Boost your brand with KenzyBoost</h2>
+      {children}
     </motion.div>
   );
+}
+
+export function AnimatedXPosition({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ x: -100 }}
+      whileInView={{ x: 0 }}
+      transition={{ duration: 1 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function AnimatedXReversePosition({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ x: 100 }}
+      whileInView={{ x: 0 }}
+      transition={{ duration: 1 }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function AnimateFlip({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ rotate: 0 }}
+      whileInView={{ rotate: 180 }}
+      transition={{ duration: 2 }}>
+      {children}
+    </motion.div>
+  )
+}
+
+export function AnimateDownToUp({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 1 }}
+      transition={{ duration: 1 }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+export function AnimateUpToDown({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: -100 }}
+      whileInView={{ opacity: 1, y: 1 }}
+      transition={{ duration: 1 }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+export function AnimateScale({ children }: { children: React.ReactNode }) {
+  return (
+    <motion.div
+      initial={{ scale: 0.5 }}
+      whileInView={{ scale: 1 }}
+      transition={{ duration: 1 }}
+    >
+      {children}
+    </motion.div>
+  )
 }

@@ -25,7 +25,17 @@ html {
 }
 
 body {
-  background: var(--primary-color);
+  /* background: linear-gradient(135deg, #f0f9ff, #e0f7fa); */
+  /* Bisa juga coba kombinasi lain */
+  background: linear-gradient(120deg, #fef6f0, #f9e8e8);
+  /* background: linear-gradient(160deg, #e0eafc, #cfdef3); */
+
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
