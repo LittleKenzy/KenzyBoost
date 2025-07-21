@@ -29,34 +29,30 @@ export default function Home() {
   const [showChatIcon, setShowChatIcon] = useState(false);
   const chatIconRef = useRef<HTMLButtonElement>(null);
 
+  const { messages, input, handleInputChange, handleSubmit, isLoading, stop, reload, error } = useChat({ api: "/api/chat" });
+
   useEffect(() => {
-    console.log("useEffect running (initial render or dependency change)"); // Log saat useEffect berjalan
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       const shouldShow = currentScrollY > 50;
-      console.log(`Scroll Event: window.scrollY = ${currentScrollY}, shouldShow = ${shouldShow}`); // Log setiap event scroll
 
       if (shouldShow) {
-        if (!showChatIcon) { // Hanya update state jika memang berubah
+        if (!showChatIcon) {
           setShowChatIcon(true);
-          console.log("Setting showChatIcon to TRUE"); // Log saat state diubah
         }
       } else {
-        if (showChatIcon) { // Hanya update state jika memang berubah
+        if (showChatIcon) {
           setShowChatIcon(false);
-          setIsChatOpen(false); // Pastikan chat ditutup saat scroll kembali ke atas
-          console.log("Setting showChatIcon to FALSE"); // Log saat state diubah
+          setIsChatOpen(false);
         }
       }
     };
 
-    // Panggil sekali saat komponen dimuat untuk mengatur state awal
+
     handleScroll();
-    console.log("Initial handleScroll called. Initial showChatIcon:", showChatIcon); // Log state setelah panggilan awal
 
     window.addEventListener("scroll", handleScroll);
     return () => {
-      console.log("Cleaning up scroll event listener."); // Log saat cleanup
       window.removeEventListener("scroll", handleScroll);
     };
 
@@ -117,9 +113,65 @@ export default function Home() {
                 <ArrowDownCircleIcon className="size-12" />
               )}
             </Button>
-            
+
           </motion.div>
         )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {isChatOpen && (<motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.3 }}
+          className='fixed bottom-28 right-4 z-50 w-[95%] md:w-[499px]'>
+          <Card className='bg-white text-black dark:bg-zinc-900 dark:text-white border-2 shadow-lg'>
+            <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-3'>
+              <CardTitle className='text-lg font-bold'>
+                Chat with KenzyBoost AI
+              </CardTitle>
+              <Button onClick={toggleChat}
+                size="icon" variant="ghost" className='px-2 py-0'>
+                <X className='size-4' />
+                <span className='sr-only'>Close chat</span>
+              </Button>
+            </CardHeader>
+            <CardContent>
+              <ScrollArea className='h-[300px] pr-4'>
+                {messages?.length === 0 && (
+                  <div className='w-full mt-32 text-gray-500 items-center justify-center flex gap-3'>
+                    No message yet.
+                  </div>
+                )}
+
+                {messages.map((messages, index) => (<div key={index} className=''>okdcojs</div>))}
+                {isLoading && (
+                  <div className='w-full items-center flex justify-center gap-3'>
+                    <Loader2 className='animate-spin h-5 w-5 text-primary' />
+                    <button className='underline' type='button' onClick={() => stop()}>
+                      abort
+                    </button>
+                  </div>
+                )}
+                {error && (
+                  <div className='w-full items-center flex justify-center gap-3'>
+                    <div>An error occured.</div>
+                    <button className='underline' type='button' onClick={() => reload()}>
+                      retry
+                    </button>
+                  </div>
+                )}
+              </ScrollArea>
+            </CardContent>
+            <CardFooter>
+              <form onSubmit={handleSubmit} className='flex w-full items-center space-x-2'>
+                <Input value={input} onChange={handleInputChange} className='flex-1' placeholder='Type your message here...' />
+                <Button type='submit' className='size-9' disabled={isLoading} size="icon">
+                  <Send />
+                </Button>
+              </form>
+            </CardFooter>
+          </Card>
+        </motion.div>)}
       </AnimatePresence>
     </>
   );
