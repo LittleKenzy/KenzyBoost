@@ -1,4 +1,5 @@
 import { AnimateDownToUp, AnimateUpToDown } from '../animationPages/template';
+import Image from 'next/image';
 
 const Services = () => {
   return (
@@ -28,7 +29,7 @@ const Services = () => {
           <li>
             <a href="#" className="group block overflow-hidden">
               <AnimateDownToUp>
-                <img
+                <Image
                   src="/images/web-dev-image-service.jpg"
                   alt=""
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
@@ -46,7 +47,7 @@ const Services = () => {
           <li>
             <a href="#" className="group block overflow-hidden">
               <AnimateUpToDown>
-                <img
+                <Image
                   src="/images/web-design.avif"
                   alt=""
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
@@ -64,7 +65,7 @@ const Services = () => {
           <li>
             <a href="#" className="group block overflow-hidden mb-2">
               <AnimateDownToUp>
-                <img
+                <Image
                   src="/images/deploy.avif"
                   alt=""
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
@@ -82,7 +83,7 @@ const Services = () => {
           <li>
             <a href="#" className="group block overflow-hidden">
               <AnimateUpToDown>
-                <img
+                <Image
                   src="/images/kursus.avif"
                   alt=""
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"

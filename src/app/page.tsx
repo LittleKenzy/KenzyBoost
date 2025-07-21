@@ -10,8 +10,6 @@ import Contact from './contact/page';
 import Footer from './footer/page';
 
 import { useState, useEffect, useRef } from 'react';
-import ReactMarkDown from "react-markdown";
-import remarkGfm from "remark-gfm";
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';

@@ -14,7 +14,7 @@ const HomeSection = () => {
               <p className="mt-4 text-gray-700">
                 Want a stunning website without the stress of coding?
                 At KenzyBoost, we build fast, responsive, and custom websites so you can focus on growing your business.
-                Sit back. Relax. We'll do the hard work for you.
+                Sit back. Relax. We&apos;ll do the hard work for you.
               </p>
             </div>
           </div>
