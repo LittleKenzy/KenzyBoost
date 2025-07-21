@@ -9,6 +9,8 @@ html {
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #000000;
+  --primary-foreground: #ffffff;
 }
 
 @theme inline {
