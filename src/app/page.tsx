@@ -29,7 +29,9 @@ export default function Home() {
   const [showChatIcon, setShowChatIcon] = useState(false);
   const chatIconRef = useRef<HTMLButtonElement>(null);
 
-  const { messages, input, handleInputChange, handleSubmit, isLoading, stop, reload, error } = useChat({ api: "/api/chat" });
+  const { messages, input, handleInputChange, handleSubmit, isLoading, stop, reload, error } = useChat({ api: "/api/gemini" });
+
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +63,12 @@ export default function Home() {
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
   }
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({behavior: "smooth"});
+    }
+  }, [messages]);
 
   return (
     <>
@@ -143,7 +151,36 @@ export default function Home() {
                   </div>
                 )}
 
-                {messages.map((messages, index) => (<div key={index} className=''>okdcojs</div>))}
+                {messages.map((message, index) => (<div key={index} className={`mb-4 ${message.role === "user" ? "text-right" : "text-left"}`}>
+                  <div className={`inline-block p-3 rounded-lg ${message.role === 'user' ? 'bg-primary text-primary-forefround' : 'bg-muted'}`}>
+                    <ReactMarkDown
+                      children={message.content}
+                      remarkPlugins={[remarkGfm]}
+                      components={{
+                        // code({ node, inline, className, children, ...props }) {
+                        code({ inline, className, children, ...props }: React.HTMLAttributes<HTMLElement> & { inline?: boolean }) {
+                          return inline ? (
+                            <code {...props} className='bg-gray-200 px-1 rounded'>{children}</code>
+                          ) : (
+                            <pre {...props} className='bg-gray-200 px-1 rounded'>
+                              <code>{children}</code>
+                            </pre>
+                          )
+                        },
+                        ul: ({ children }) => (
+                          <ul className='list-disc ml-4'>
+                            {children}
+                          </ul>
+                        ),
+                        ol: ({ children }) => (
+                          <ul className='list-decimal ml-4'>
+                            {children}
+                          </ul>
+                        )
+                      }}
+                    />
+                  </div>
+                </div>))}
                 {isLoading && (
                   <div className='w-full items-center flex justify-center gap-3'>
                     <Loader2 className='animate-spin h-5 w-5 text-primary' />
@@ -160,6 +197,7 @@ export default function Home() {
                     </button>
                   </div>
                 )}
+                <div ref={scrollRef}></div>
               </ScrollArea>
             </CardContent>
             <CardFooter>
