@@ -1,5 +1,5 @@
 import { AnimateDownToUp, AnimateUpToDown } from '../animationPages/template';
-import Image from 'next/image';
+import img from 'next/image';
 
 const Services = () => {
   return (
@@ -29,9 +29,11 @@ const Services = () => {
           <li>
             <a href="#" className="group block overflow-hidden">
               <AnimateDownToUp>
-                <Image
+                <img
                   src="/images/web-dev-image-service.jpg"
                   alt=""
+                  width={400}
+                  height={300}
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
                 />
               </AnimateDownToUp>
@@ -47,9 +49,11 @@ const Services = () => {
           <li>
             <a href="#" className="group block overflow-hidden">
               <AnimateUpToDown>
-                <Image
+                <img
                   src="/images/web-design.avif"
                   alt=""
+                  width={400}
+                  height={300}
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
                 />
               </AnimateUpToDown>
@@ -65,9 +69,11 @@ const Services = () => {
           <li>
             <a href="#" className="group block overflow-hidden mb-2">
               <AnimateDownToUp>
-                <Image
+                <img
                   src="/images/deploy.avif"
                   alt=""
+                  width={400}
+                  height={300}
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
                 />
               </AnimateDownToUp>
@@ -83,9 +89,11 @@ const Services = () => {
           <li>
             <a href="#" className="group block overflow-hidden">
               <AnimateUpToDown>
-                <Image
+                <img
                   src="/images/kursus.avif"
                   alt=""
+                  width={400}
+                  height={300}
                   className="h-[350px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[450px]"
                 />
               </AnimateUpToDown>

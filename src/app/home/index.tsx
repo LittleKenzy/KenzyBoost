@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 const HomeSection = () => {
   return (
     <section className="bg-gradient-to-tr from-stone-50 to-orange-200 mx-auto my-auto bg-white shadow-2xl mt-10 w-full">
@@ -20,7 +18,7 @@ const HomeSection = () => {
           </div>
 
           <div className="md:col-span-3 mx-auto my-auto">
-            <Image
+            <img
               src="/images/background.avif"
               className="rounded mx-10"
               alt=""
