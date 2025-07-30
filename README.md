@@ -11,6 +11,8 @@
 
     ```bash
     npm install
+    # if npm install error, you can use this.
+    # npm install --legacy-peer-deps 
     ```
 
 3. Copy .env.local.example as .env.local
