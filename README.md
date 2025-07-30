@@ -18,14 +18,19 @@
     ```bash
     cp .env.local.example .env.local
     ```
+    
+4. put your apikey ai from openrouter at .env.local, for example.
+    
+   ```bash
+   OPENROUTER_API_KEY=sk-or-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   ```
 
-4. run project locally
+5. run project locally
     
     ```bash
     npm run dev
     ```
 
-5. put your apikey ai from openrouter at .env.local (Optional for ai feature)
 
 <details><summary><h2>Next Js</h2></summary>
 
