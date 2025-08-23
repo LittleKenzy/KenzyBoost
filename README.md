@@ -1,3 +1,41 @@
+## How to run
+
+1. Clone and open the project
+
+    ```bash
+    git clone https://github.com/LittleKenzy/KenzyBoost.git
+    cd KenzyBoost
+    ```
+
+2. Install Dependencies
+
+    ```bash
+    npm install
+    # if npm install error, you can use this.
+    # npm install --legacy-peer-deps 
+    ```
+
+3. Copy .env.local.example as .env.local
+
+    ```bash
+    cp .env.local.example .env.local
+    ```
+    
+4. put your apikey ai from openrouter at .env.local, for example.
+    
+   ```bash
+   OPENROUTER_API_KEY=sk-or-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   ```
+
+5. run project locally
+    
+    ```bash
+    npm run dev
+    ```
+
+
+<details><summary><h2>Next Js</h2></summary>
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -34,3 +72,5 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+</details>
